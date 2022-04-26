@@ -30,8 +30,9 @@ jobs:
           role-to-assume: ${{ secrets.LAMBDA_DEPLOY_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Update lambda
-        run: aws lambda update-function-code \
-          --function-name ${{ secrets.LAMBDA_POST_ARN }} \
-          --zip-file  fileb://target/NovelLambdaPost.jar \
+      - name: Deploy lambda
+        run: >
+          aws lambda update-function-code 
+          --function-name ${{ secrets.LAMBDA_POST_ARN }} 
+          --zip-file  fileb://target/NovelLambdaPost.jar 
           --publish
