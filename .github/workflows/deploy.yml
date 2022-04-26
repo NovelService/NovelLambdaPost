@@ -9,6 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    # See https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
     permissions:
       id-token: write
       contents: read
@@ -26,6 +27,7 @@ jobs:
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
+          # Role only needs "lambda:UpdateFunctionCode" policy
           role-to-assume: ${{ secrets.LAMBDA_DEPLOY_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
