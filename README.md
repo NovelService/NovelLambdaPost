@@ -12,12 +12,14 @@ Architecture=x86_64
 ## Environment Variables
 Set these values as environment variables for the lambda function. 
 ```
-SQS_QUEUE_URL=<your-url>
+SQS_QUEUE_URL=<your-sqs-url>
+DYNAMO_DB_TABLE_NAME=<your-table-name>
 ```
 
 ## Role
-The lambda needs a role with :
-- Permission "sqs:SendMessage"
+The lambda needs a role with permission:
+- "sqs:SendMessage"
+- "dynamodb:PutItem"
 
 And optionally for logging
 - Policy "AWSLambdaBasicExecutionRole"
