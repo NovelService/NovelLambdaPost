@@ -14,6 +14,8 @@ Set these values as environment variables for the lambda function.
 ```
 SQS_QUEUE_URL=<your-sqs-url>
 DYNAMO_DB_TABLE_NAME=<your-table-name>
+REGION=<your-region>
+JAVA_TOOL_OPTIONS=-XX:+TieredCompilation -XX:TieredStopAtLevel=1
 ```
 
 ## Role
