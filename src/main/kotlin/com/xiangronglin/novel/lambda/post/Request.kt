@@ -9,5 +9,6 @@ data class Request(
 )
 
 data class Options(
+    val fileType: String = "epub",
     val output: String
 )
